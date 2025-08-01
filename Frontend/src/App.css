@@ -1,0 +1,152 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  position: relative;
+  overflow: auto; 
+
+}
+
+
+.left .code,
+.code pre,
+.code pre code {
+  /* height: 100%;
+  width: 100%; */
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+  overflow: auto;
+   
+}
+
+main .left .review {
+  display: block;
+  margin: 1.5rem auto 1.5rem auto;
+  width: 70%;
+  max-width: 250px;
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #222;
+  padding: 0.7rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(100, 100, 255, 0.08);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s, transform 0.2s;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+main .left .review:hover,
+main .left .review:focus {
+  background: linear-gradient(90deg, #c2e9fb 0%, #a1c4fd 100%);
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+main .right {
+  background-color: #343434;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+
+/* Shimmer */
+.shimmer {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  margin-top: 20px;
+  color: black;
+  font-weight: semibold;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  main .left,
+  main .right {
+    flex-basis: 100%;
+    height: 50%;
+  }
+
+  main .right {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  main .left .review {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0.5rem;
+  }
+
+  main .left,
+  main .right {
+    height: auto;
+    min-height: 300px;
+  }
+
+  main .right {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .shimmer {
+    height: 150px;
+    margin-top: 10px;
+  }
+}

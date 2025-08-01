@@ -1,0 +1,53 @@
+# Node.js
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build files
+dist/
+build/
+
+# Dependency directories (if any)
+bower_components/
+jspm_packages/
+
+# Optional: Ignore coverage reports
+coverage/
+
+# Optional: Ignore local dev databases
+*.sqlite
+*.sqlite3
+
+# React or Vite-specific
+*.cache/
+*.env.production
+*.env.development
+
+# Mac specific
+.AppleDouble
+.LSOverride
+
+# Parcel cache
+.cache/
+.parcel-cache/
+
+# Output of 'npm pack'
+*.tgz
