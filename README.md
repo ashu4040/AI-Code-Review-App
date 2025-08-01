@@ -71,7 +71,7 @@ npm install
 
 ## Screenshot
 
-![App Screenshot](.frontend/assets/screenshot.png)
+![App Screenshot](./assets/screenshot.png)
 
 ---
 
