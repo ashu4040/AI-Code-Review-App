@@ -69,12 +69,6 @@ npm install
 
 ---
 
-## Screenshot
-
-![App Screenshot](./assets/screenshot.png)
-
----
-
 ## Tech Stack
 
 - **Frontend:** React, react-simple-code-editor, PrismJS, react-markdown, highlight.js, axios, Vite
