@@ -8,7 +8,7 @@ app.use(cors({
   origin: '*', // For testing; restrict in production
 }));
 
-app.use("/api", router);
+app.use("/", router);
 
 app.get('/', (req, res) => {
   res.send('API is running');
