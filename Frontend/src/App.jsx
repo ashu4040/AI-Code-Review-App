@@ -27,7 +27,7 @@ function App() {
     setReview(""); 
     try {
       const response = await axios.post(
-        "https://ai-code-review-app-jpc5.onrender.com/getResponse",
+        import.meta.env.VITE_API_URL,
         { code }
       );
       setReview(response.data);

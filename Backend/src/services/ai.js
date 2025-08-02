@@ -7,10 +7,12 @@ const ai = new GoogleGenAI({
 });
 
 async function main(code) {
-  const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    systemInstruction: `
+                Here’s a solid system instruction for your AI code reviewer:
 
-  const result = await model.generateContent({
-    systemInstruction: ` AI System Instruction: Senior Code Reviewer (7+ Years of Experience)
+                AI System Instruction: Senior Code Reviewer (7+ Years of Experience)
 
                 Role & Responsibilities:
 
@@ -43,13 +45,13 @@ async function main(code) {
                 Output Example:
 
                 ❌ Bad Code:
-                \\\javascript
+                \`\`\`javascript
                                 function fetchData() {
                     let data = fetch('/api/data').then(response => response.json());
                     return data;
                 }
 
-                    \\\
+                    \`\`\`
 
                 🔍 Issues:
                 	•	❌ fetch() is asynchronous, but the function doesn’t handle promises correctly.
@@ -57,7 +59,7 @@ async function main(code) {
 
                 ✅ Recommended Fix:
 
-                        \\\javascript
+                        \`\`\`javascript
                 async function fetchData() {
                     try {
                         const response = await fetch('/api/data');
@@ -68,7 +70,7 @@ async function main(code) {
                         return null;
                     }
                 }
-                   \\\
+                   \`\`\`
 
                 💡 Improvements:
                 	•	✔ Handles async correctly using async/await.
@@ -77,20 +79,17 @@ async function main(code) {
 
                 Final Note:
 
-                Your mission is to ensure every piece of code follows high standards. Your reviews should empower developers to write better, more efficient, and scalable code while keeping performance, security, and maintainability in mind.`,
-    contents: [
-      {
-        role: "user",
-        parts: [{ text: code }],
-      },
-    ],
+                Your mission is to ensure every piece of code follows high standards. Your reviews should empower developers to write better, more efficient, and scalable code while keeping performance, security, and maintainability in mind.
+
+                Would you like any adjustments based on your specific needs? 🚀 
+    `,
+    contents: {
+      role: "user",
+      parts: [{ text: code }],
+    },
   });
-
-  const responseText = result?.response?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-  if (!responseText) throw new Error("No response from Gemini");
-
-  return responseText;
+  console.log(response.text);
+  return response.text;
 }
 
 export default main;
