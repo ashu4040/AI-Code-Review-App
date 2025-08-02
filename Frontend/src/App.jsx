@@ -72,7 +72,7 @@ function App() {
           <div className="shimmer">Please Wait</div>
         ) : !code.trim() ? (
           <div style={{ color: "#bbb", textAlign: "center" }}>
-            Write code in the left editor.
+            Write code in the editor.
           </div>
         ) : (
           <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
